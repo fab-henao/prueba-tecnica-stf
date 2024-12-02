@@ -383,6 +383,7 @@ body {
 
   #section-4 {
     padding: 10vw;
+    padding-top: 2vw;
     background: white;
   }
 
@@ -538,7 +539,7 @@ body {
   #section-4 .box-container {
     position: absolute;
     z-index: 1;
-    width: 51.24451vw;
+    width: 42.24451vw;
     margin-top: 2.562225vw;
   }
 
