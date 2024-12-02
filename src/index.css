@@ -57,8 +57,32 @@ body {
   font-weight: 400;
 }
 
+.gallery-item-caption{
+  cursor: pointer;
+}
+
+.container-header img,
+.footer img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.footer{
+  padding: 5vw 20vw;
+  background: #fdfdfd;
+}
 
 @media only screen and (min-width: 1026px) {
+
+  .container-header {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+  }
+
+  #section-1 {
+    margin-top: 3vw;
+  }
 
   #section-1 .box-container {
     display: flex;
@@ -362,7 +386,7 @@ body {
     background: white;
   }
 
-  #section-5{
+  #section-5 {
     background: white;
   }
 
@@ -624,7 +648,7 @@ body {
     padding-left: 6.511628vw;
   }
 
-  .show-colecction{
+  .show-colecction {
     font-size: 2.790698vw;
   }
 

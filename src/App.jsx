@@ -6,6 +6,9 @@ import Galery from "./Components/Galery";
 const App = () => {
   return (
     <main>
+      <div className="container-header">
+        <img src="/assets/menu.png" alt="" srcset="" />
+      </div>
       <section id="section-1">
         <div className="container-1">
           <picture className="img-banner">
@@ -235,6 +238,10 @@ const App = () => {
       <section id="section-5">
         <TabsComponent />
       </section>
+
+      <div className="footer">
+        <img src="/assets/footer-1.png" alt="" srcset=""  />
+      </div>
     </main>
   );
 };
