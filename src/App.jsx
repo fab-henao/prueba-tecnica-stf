@@ -11,7 +11,7 @@ const App = () => {
           <picture className="img-banner">
             <source
               srcSet="/assets/hues-of-paradise-treasure-banner-desk.jpg"
-              media="(min-width: 768px)"
+              media="(min-width: 769px)"
             />
             <img
               src="/assets/hues-of-paradise-treasure-banner-mob.jpg"
@@ -60,7 +60,7 @@ const App = () => {
             <picture className="img-banner">
               <source
                 srcSet="/assets/hues-of-paradise-colores-banner-desk.jpg"
-                media="(min-width: 768px)"
+                media="(min-width: 769px)"
               />
               <img
                 src="/assets/hues-of-paradise-colores-banner-mob.jpg"
