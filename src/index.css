@@ -57,7 +57,7 @@ body {
   font-weight: 400;
 }
 
-.gallery-item-caption{
+.gallery-item-caption {
   cursor: pointer;
 }
 
@@ -67,7 +67,7 @@ body {
   object-fit: cover;
 }
 
-.footer{
+.footer {
   padding: 5vw 20vw;
   background: #fdfdfd;
 }
@@ -218,7 +218,7 @@ body {
 }
 
 .gallery-item-caption .img-cart {
-  width: 38%;
+  width: 38% !important;
   transition: all .1s ease-out;
 }
 
@@ -234,30 +234,23 @@ body {
   width: 100%;
 }
 
-.container-3 {
-  position: absolute;
-  bottom: 0;
-  height: 100vh;
-}
 
 .gallery-item:nth-child(even) .gallery-item-caption {
-  position: absolute;
-  top: 0;
   right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #6c68684d;
-  border-radius: 50%;
-  width: 52px;
-  height: 52px;
-  justify-content: center;
 }
 
 .gallery-item:nth-child(odd) .gallery-item-caption {
+  left: 0;
+}
+
+.letter-img .gallery-item-caption{
+  right: 10px;
+  top: 10px;
+}
+
+.gallery-item-caption {
   position: absolute;
   top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -275,16 +268,6 @@ body {
 }
 
 /* fin galeria */
-
-#section-2 .container-3 {
-  view-timeline-name: --section2-timeline;
-  view-timeline-axis: block;
-  animation: reveal linear;
-  animation-timeline: --section2-timeline;
-  animation-range: entry 0% exit 100%;
-  transform: rotate(7.00001deg);
-  z-index: 2;
-}
 
 #section-1 .container-1,
 #section-2 .container-1,
@@ -304,16 +287,27 @@ body {
   background: white;
 }
 
+#section-2 .container-effect,
+#section-2 .container-3 {
+  position: sticky;
+}
+
+#section-2 .container-3 {
+  display: flex;
+  justify-content: flex-end;
+  transform: rotate(7.00001deg);
+}
+
 
 @media only screen and (min-width: 1026px) {
 
   #section-2 .container-3 {
-    height: 40vh;
-    /* height: 144vh; */
+    left: 31%;
   }
 
-  .container-3 {
-    right: 1.4vw;
+  #section-2 .container-effect,
+  #section-2 .container-3 {
+    top: 2vw;
   }
 
   #section-2 .box-container {
@@ -371,16 +365,6 @@ body {
     font-size: 6px;
   }
 
-  @keyframes reveal {
-    from {
-      transform: translateY(0px) rotate(7deg);
-    }
-
-    to {
-      transform: translateY(-2000px) rotate(7deg);
-    }
-  }
-
   #section-4 {
     padding: 10vw;
     padding-top: 2vw;
@@ -395,6 +379,11 @@ body {
 }
 
 @media only screen and (max-width: 1025px) {
+
+  #section-2 .container-effect,
+  #section-2 .container-3 {
+    top: 0;
+  }
 
   .container-3 {
     right: 15vw;
@@ -454,17 +443,6 @@ body {
     font-size: 7px;
   }
 
-
-  @keyframes reveal {
-    from {
-      transform: translateY(1110px) rotate(7deg);
-    }
-
-    to {
-      transform: translateY(-800px) rotate(7deg);
-    }
-  }
-
 }
 
 /*--- Fin estilos segunda sección ---*/
@@ -503,11 +481,6 @@ body {
   flex-wrap: wrap;
   top: 50%;
   left: 50%;
-}
-
-#section-3 .container-1,
-#section-3 .container-2 {
-  position: relative;
 }
 
 #section-4 .container-2 {
@@ -947,3 +920,117 @@ p.price-product {
 }
 
 /*--- Fin estilos Tabs ---*/
+
+
+/*--- Inicio estilos Carta ---*/
+
+
+#section-3 .container-1 {
+  position: relative;
+}
+
+
+.container-letter,
+.container-letter .box-letter {
+  position: sticky;
+}
+
+.container-letter {
+  z-index: 1;
+}
+
+.container-back-letter {
+  z-index: 2;
+}
+
+.letter-img {
+  z-index: 1;
+  position: sticky;
+}
+
+.box-container {
+  position: sticky;
+}
+
+.container-back-letter {
+  position: sticky;
+  background: white;
+}
+
+#section-3 .container-2 {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+@media only screen and (min-width: 1026px) {
+
+  #section-3 .container-2 {
+    flex-direction: column;
+  }
+
+  .container-back-letter {
+    width: 405px;
+  }
+
+  .container-letter.container-letter-2 {
+    width: 400px;
+  }
+
+  .container-letter.container-letter-2 {
+    margin-bottom: 30vw;
+  }
+
+  .letter-img {
+    top: 4vw;
+  }
+
+  .box-container {
+    top: 0;
+  }
+
+  .container-back-letter {
+    top: 22vw;
+    bottom: 50vw;
+    height: 42vw;
+  }
+
+  #section-3 .container-2 {
+    top: 19vw;
+  }
+
+}
+
+@media only screen and (max-width: 1025px) {
+  .container-back-letter {
+    width: 250px;
+  }
+
+  .container-letter.container-letter-2 {
+    width: 200px;
+    margin-top: 53vw;
+  }
+
+  .letter-img {
+    bottom: 4vw;
+  }
+
+  .box-container {
+    bottom: 0;
+  }
+
+  .container-back-letter {
+    bottom: 0;
+    margin-top: 24vw;
+  }
+
+  #section-3 .container-2 {
+    bottom: 0;
+  }
+
+  #section-3 .container-2{
+    flex-direction: column-reverse;
+  }
+}
+
+/*--- Fin estilos Carta ---*/

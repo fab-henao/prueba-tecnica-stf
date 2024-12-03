@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 import TabsComponent from "./Components/Tabs";
 import Galery from "./Components/Galery";
@@ -101,56 +101,56 @@ const App = () => {
 
       <section id="section-3">
         <div className="container-1">
-          <div className="box-1">
-            <img
-              src="/assets/hues-of-paradise-envelope-fondo.jpg"
-              alt="imagen de referencia fondo"
-            />
-          </div>
-          <div className="box-2">
-            <div className="item-collage item-collage-1">
+          <div className="box-container">
+            <div className="box-1">
               <img
-                src="/assets/hues-of-paradise-envelope-1.jpg"
-                alt="Foto de madre e hija vistiendo ropa en color blanco de la marca Studio F"
-                title="Moda Studio F"
+                src="/assets/hues-of-paradise-envelope-fondo.jpg"
+                alt="imagen de referencia fondo"
               />
             </div>
-            <div className="item-collage item-collage-2">
-              <img
-                src="/assets/hues-of-paradise-envelope-2.jpg"
-                alt="Foto en detalle de mujer leyendo una ca rta y vistiendo ropa de color blanco de la marca Studio F"
-                title="Studio f ropa mujer"
-              />
-            </div>
-            <div className="item-collage item-collage-3">
-              <div className="divider-box">
+            <div className="box-2">
+              <div className="item-collage item-collage-1">
                 <img
-                  src="/assets/hues-of-paradise-envelope-3.png"
-                  alt="Pista Ni"
-                  title="Pista Ni"
+                  src="/assets/hues-of-paradise-envelope-1.jpg"
+                  alt="Foto de madre e hija vistiendo ropa en color blanco de la marca Studio F"
+                  title="Moda Studio F"
                 />
               </div>
-              <div className="divider-box">
-                <p className="paragraph paragraph-1">
-                  “Donde las palmas bailan al ritmo del viento y los velos
-                  susurran secretos, descubrirás el primer tesoro, aquel que
-                  iluminará los ojos de mamá con encanto completo”
-                </p>
+              <div className="item-collage item-collage-2">
+                <img
+                  src="/assets/hues-of-paradise-envelope-2.jpg"
+                  alt="Foto en detalle de mujer leyendo una ca rta y vistiendo ropa de color blanco de la marca Studio F"
+                  title="Studio f ropa mujer"
+                />
               </div>
-            </div>
-            <div className="item-collage item-collage-4">
-              <img
-                src="/assets/hues-of-paradise-envelope-4.jpg"
-                alt="Modelo mujer sentada en una silla vistiendo blazer y short blanco de la marca Studio F"
-                title="Blazer mujer Studio F"
-              />
+              <div className="item-collage item-collage-3">
+                <div className="divider-box">
+                  <img
+                    src="/assets/hues-of-paradise-envelope-3.png"
+                    alt="Pista Ni"
+                    title="Pista Ni"
+                  />
+                </div>
+                <div className="divider-box">
+                  <p className="paragraph paragraph-1">
+                    “Donde las palmas bailan al ritmo del viento y los velos
+                    susurran secretos, descubrirás el primer tesoro, aquel que
+                    iluminará los ojos de mamá con encanto completo”
+                  </p>
+                </div>
+              </div>
+              <div className="item-collage item-collage-4">
+                <img
+                  src="/assets/hues-of-paradise-envelope-4.jpg"
+                  alt="Modelo mujer sentada en una silla vistiendo blazer y short blanco de la marca Studio F"
+                  title="Blazer mujer Studio F"
+                />
+              </div>
             </div>
           </div>
         </div>
         <div className="container-2">
-          <div className="box-1">
-            <Letter />
-          </div>
+          <Letter />
         </div>
       </section>
 
@@ -240,82 +240,42 @@ const App = () => {
       </section>
 
       <div className="footer">
-        <img src="/assets/footer-1.png" alt="" srcset=""  />
+        <img src="/assets/footer-1.png" alt="" srcset="" />
       </div>
     </main>
   );
 };
 
 const Letter = () => {
-  const [isLetterOpen, setIsLetterOpen] = useState(false);
-  const [revealedImages, setRevealedImages] = useState(0);
-  const letterContainerRef = useRef(null);
-
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!isLetterOpen) return;
-
-      const letterContainer = letterContainerRef.current;
-      if (!letterContainer) return;
-
-      const containerRect = letterContainer.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-
-      // Calcular cuántas imágenes deben mostrarse basado en el scroll
-      const totalImages = 8;
-      const scrollProgress = Math.min(
-        Math.max(windowHeight - containerRect.top, 0) / containerRect.height,
-        1
-      );
-
-      const imagesToReveal = Math.floor(scrollProgress * totalImages);
-      setRevealedImages(imagesToReveal);
-    };
-
-    if (isLetterOpen) {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, [isLetterOpen]);
-
   return (
-    <div className="container-letter">
-      <div className="box'images">
+    <>
+      <div className="container-back-letter">
         <img
           src="/assets/hues-of-paradise-sobre-open.png"
           alt="imagen de referencia carta"
         />
-        {isLetterOpen && (
-          <div className="container-letter container-letter-2">
-            <div className="box-letter box-letter-2">
-              {[1, 2, 3, 4, 5].map((index) => (
-                <div
-                  key={index}
-                  className={`letter-img letter-img-${index} ${
-                    revealedImages >= index ? "revealed" : ""
-                  }`}
-                  style={{
-                    zIndex: index, // Asegura que las imágenes posteriores estén encima
-                  }}
-                >
-                  <img
-                    src={`/assets/hues-of-paradise-sobre-slider-${index}.jpg`}
-                    alt={`imagen de referencia ${index}`}
-                  />
-                </div>
-              ))}
+      </div>
+      <div className="container-letter container-letter-2">
+        <div className="box-letter box-letter-2">
+          {[1, 2, 3, 4].map((index) => (
+            <div key={index} className={`letter-img letter-img-${index}`}>
+              <div className="gallery-item-caption">
+                <img
+                  className="img-cart"
+                  src="/assets/hues-of-paradise-shopping.png"
+                  alt="Carrito de compras"
+                />
+                <p className="paragraph paragraph-cart-info">COMPRAR AHORA</p>
+              </div>
+              <img
+                src={`/assets/hues-of-paradise-sobre-slider-${index}.jpg`}
+                alt={`imagen de referencia ${index}`}
+              />
             </div>
-          </div>
-        )}
+          ))}
+        </div>
       </div>
-
-      <div className="box-button">
-        <button onClick={() => setIsLetterOpen(!isLetterOpen)}>
-          Abrir Carta
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 
